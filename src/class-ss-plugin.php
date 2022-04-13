@@ -99,6 +99,9 @@ class Plugin {
 			// Instead of using ajax, activate export log file and run with cron.
 			add_action( 'simply_static_site_export_cron', array( self::$instance, 'run_static_export' ) );
 
+			// Instead of using ajax, activate export log file and run with post updated.
+			add_action( 'post_updated', array( self::$instance, 'run_static_export' ) );
+
 			// Filters
 			add_filter( 'admin_footer_text', array( self::$instance, 'filter_admin_footer_text' ), 15 );
 			add_filter( 'update_footer', array( self::$instance, 'filter_update_footer' ), 15 );
